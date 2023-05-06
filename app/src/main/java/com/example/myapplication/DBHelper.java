@@ -15,6 +15,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLENAME = "users";
     public static final String COL1 = "username";
     public static final String COL2 = "password";
+    public static final String COL3 = "email";
+    public static final String COL4 = "phone";
 
     public DBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DBNAME,null, 1);
@@ -36,11 +38,14 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("drop Table if exists " + TABLENAME);
     }
 
-    public Boolean insertData(String username, String password){
+    public Boolean insertData(String username, String password,String email, String phone){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         contentValues.put(COL1, username);
         contentValues.put(COL2, password);
+        contentValues.put(COL3, email);
+        contentValues.put(COL4, phone);
+
         long result = MyDB.insert(TABLENAME, null, contentValues);
         if(result==-1) return false;
         return true;
@@ -59,6 +64,18 @@ public class DBHelper extends SQLiteOpenHelper {
         if(cursor.getCount()>0) return true;
         return false;
     }
+    public Boolean checkEmail( String email){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from " + TABLENAME + " where " + COL3 + " = ?" , new String[] {email});
+        if(cursor.getCount()>0) return true;
+        return false;
+    }
 
+    public Boolean checkPhone( String password){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from " + TABLENAME + " where " + COL4 + " = ?" , new String[] {password});
+        if(cursor.getCount()>0) return true;
+        return false;
+    }
 
 }
