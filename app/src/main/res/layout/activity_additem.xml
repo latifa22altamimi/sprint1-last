@@ -7,31 +7,18 @@
     tools:context=".additem">
 
     <EditText
-        android:id="@+id/ItemName"
-        android:layout_width="220dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="60dp"
-        android:background="@android:drawable/editbox_background"
-        android:ems="10"
-        android:hint="enter item name"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
         android:id="@+id/description"
         android:layout_width="226dp"
         android:layout_height="80dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:background="@android:drawable/editbox_background"
         android:ems="10"
         android:gravity="start|top"
         android:hint="enter brief description"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ItemName" />
+        app:layout_constraintTop_toBottomOf="@+id/itemname" />
 
     <EditText
         android:id="@+id/cost"
@@ -52,6 +39,7 @@
         android:layout_height="54dp"
         android:layout_marginStart="136dp"
         android:layout_marginTop="24dp"
+        android:background="#FC6591"
         android:text="upload image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cost" />
@@ -61,10 +49,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="252dp"
+        android:background="#FC6591"
         android:text="add item for rent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upload" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="205dp"
+        android:layout_height="185dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/itemname"
+        android:layout_width="227dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="enter name of item"
+        android:inputType="textPersonName"
+        android:background="@android:drawable/editbox_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
