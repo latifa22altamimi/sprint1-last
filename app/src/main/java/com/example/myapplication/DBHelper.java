@@ -30,13 +30,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create Table " + TABLENAME + "(" + COL1 + " TEXT primary key, " + COL2 + " TEXT)");
+        sqLiteDatabase.execSQL("create Table " + TABLENAME + "(" + COL1 + " TEXT primary key, " + COL2 + " TEXT,"+COL3+" Text,"+COL4+" TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("drop Table if exists " + TABLENAME);
     }
+
+
+
 
     public Boolean insertData(String username, String password,String email, String phone){
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -60,7 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean checkUsernamePassword(String username, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from " + TABLENAME + " where " + COL1 + " = ? and " + COL2 + " = ?", new String[] {username,password});
+        Cursor cursor = MyDB.rawQuery("Select * from " + TABLENAME + " where " + COL1 + " = ? and " + COL2 + " = ?", new String[] {username,password}  );
         if(cursor.getCount()>0) return true;
         return false;
     }
