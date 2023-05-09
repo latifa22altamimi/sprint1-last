@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    android:background="@drawable/log3">
+    android:layout_height="wrap_content"
+    android:background="@drawable/log3"
+    tools:context=".HomeActivity">
+
 
     <TextView
         android:id="@+id/textView"
@@ -26,6 +27,7 @@
         android:layout_marginEnd="322dp"
         android:layout_marginBottom="25dp"
         android:background="#FC6591"
+        android:src="@drawable/baseline_logout_24"
         android:text="Logout"
         android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,4 +36,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="-4dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
