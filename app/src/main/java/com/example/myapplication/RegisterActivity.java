@@ -39,12 +39,11 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     Boolean checkUser = DB.checkUsername(user);
-                    Boolean insert = DB.insertData(user, pass, em, ph);
                     if(!checkUser){
                         Boolean checkEmail=DB.checkEmail(em);
                         Boolean checkPhone=DB.checkPhone(ph);
                         if (!checkEmail && !checkPhone) {
-                          insert = DB.insertData(user, pass, em, ph);
+                          Boolean insert = DB.insertData(user, pass, em, ph);
 
                             if(insert){
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();

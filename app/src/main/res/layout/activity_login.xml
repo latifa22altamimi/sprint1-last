@@ -9,51 +9,87 @@
 
     <EditText
         android:id="@+id/username1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="298dp"
+        android:layout_height="81dp"
         android:layout_marginStart="74dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="336dp"
         android:layout_marginEnd="101dp"
+        android:background="@drawable/img_5"
         android:ems="10"
         android:hint="User Name"
         android:inputType="textPersonName"
+        android:paddingLeft="55dp"
+        android:paddingRight="100dp"
+        android:paddingBottom="15dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/password1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="297dp"
+        android:layout_height="72dp"
         android:layout_marginStart="67dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="108dp"
-        android:layout_marginBottom="64dp"
+        android:background="@drawable/img_6"
         android:ems="10"
-        android:hint="password"
+        android:hint="Password"
         android:inputType="textPassword"
+        android:paddingLeft="55dp"
+        android:paddingRight="100dp"
+        android:paddingBottom="15dp"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnsignin1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username1" />
 
     <Button
         android:id="@+id/btnsignin1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="145dp"
+        android:layout_height="71dp"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="52dp"
         android:layout_marginEnd="162dp"
 
 
-        android:text="Signin"
-       android:background="#FC6591"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/img_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="95dp"
+        android:layout_height="207dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/img_3" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="125dp"
+        android:layout_height="106dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/img_4" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="409dp"
+        android:layout_height="128dp"
+        app:srcCompat="@drawable/img_2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

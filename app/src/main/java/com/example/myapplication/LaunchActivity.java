@@ -1,2 +1,4 @@
-package com.example.myapplication;public class LaunchActivity {
+package com.example.myapplication;
+
+public class LaunchActivity {
 }
