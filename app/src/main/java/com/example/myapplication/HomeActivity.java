@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         // من هنا يبدأ الكود
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.baseline_logout_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_whatshot_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.baseline_add_circle_outline_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_subscriptions_24));
 
 
@@ -57,14 +57,17 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
-
+                Intent intent;
                 switch (model.getId()){
 
                     case 1 :
-                        Intent intent = new Intent(getApplicationContext() , LoginActivity.class);
+                         intent = new Intent(getApplicationContext() , LoginActivity.class);
                         startActivity(intent);
                         break;
-
+                    case 2 :
+                        intent = new Intent(getApplicationContext() , additem.class);
+                        startActivity(intent);
+                        break;
 
                 }
 

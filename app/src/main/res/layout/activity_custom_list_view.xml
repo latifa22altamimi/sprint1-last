@@ -8,14 +8,6 @@
     android:orientation="vertical"
     tools:context=".CustomListView">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Added items"
-        android:textColor="#121111"
-        android:textSize="18sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -32,7 +24,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtView2"
+                android:id="@+id/nameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
@@ -40,21 +32,17 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtView"
+                android:id="@+id/costTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="My cost" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Delete" />
-
         </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
+
+
 
