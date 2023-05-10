@@ -9,6 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
 public class MainActivity extends AppCompatActivity {
     Button signup, signin;
 
@@ -19,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         signup = findViewById(R.id.btnsignup);
         signin = findViewById(R.id.btnsignin);
-
-
-
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
