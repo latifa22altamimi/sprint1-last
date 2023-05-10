@@ -69,7 +69,7 @@ public class additem extends AppCompatActivity {
                         throw new Exception("invalid input");
                     item = new Item(name, description, Double.parseDouble(price), image);
                     db.addItem(item);
-                    Toast.makeText(addItem.this, "added", Toast.LENGTH_LONG).show();
+                    Toast.makeText(additem.this, "added", Toast.LENGTH_LONG).show();
                     Intent intent  =new Intent(getApplicationContext(),ListView.class);
 
                     startActivity(intent);
@@ -77,7 +77,7 @@ public class additem extends AppCompatActivity {
                 }
 
                 catch (Exception ex) {
-                    Toast.makeText(addItem.this, "Enter valid input and upload an image", Toast.LENGTH_LONG).show();
+                    Toast.makeText(additem.this, "Enter valid input and upload an image", Toast.LENGTH_LONG).show();
                 }
             }
         });
