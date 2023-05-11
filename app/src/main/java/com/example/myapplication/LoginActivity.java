@@ -2,11 +2,13 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
@@ -14,6 +16,9 @@ public class LoginActivity extends AppCompatActivity {
     Button signin;
     DBHelper DB;
 
+    TextView cr;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password1);
         signin = findViewById(R.id.btnsignin1);
         DB = new DBHelper(this);
+        cr= findViewById(R.id.create);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Sign up first", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        cr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
