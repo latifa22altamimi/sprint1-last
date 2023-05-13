@@ -2,12 +2,16 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -24,6 +28,12 @@ import kotlin.jvm.functions.Function1;
 
 public class HomeActivity extends AppCompatActivity {
     Button logot;
+    DBHelper db;
+    android.widget.ListView ListViewJava;
+    ArrayAdapter ItemArrayAdapter;
+
+
+    int id;
     private MeowBottomNavigation bottomNavigation;
 
     @Override
@@ -73,7 +83,56 @@ public class HomeActivity extends AppCompatActivity {
 
                 return null;
             }
-        });}}
+        });
+        id = getIntent().getIntExtra("id", 0);
+        db = new DBHelper(this);
+        ListViewJava = (android.widget.ListView) findViewById(R.id.listView1);
+
+        ArrayList<Item> items = db.getAllItems();
+
+        ItemAdapter itemAdapter = new ItemAdapter(this, R.layout.activity_custom_list_view, items);
+
+        ListViewJava.setAdapter(itemAdapter);
+
+
+        ListViewJava.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int in, long l) {
+                Item clickeditem = (Item)adapterView.getItemAtPosition(in);
+                new AlertDialog.Builder(HomeActivity.this)
+                        .setTitle("Do you want to delete this item?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                db.deleteItem(clickeditem);
+                                items.remove(in);
+                                itemAdapter.notifyDataSetChanged();
+                                Toast.makeText(HomeActivity.this, "Deleted Item: " +  clickeditem.getName(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
+            }
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+    }}
 
 
 

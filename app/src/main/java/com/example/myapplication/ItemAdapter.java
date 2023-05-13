@@ -38,7 +38,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         if ( currentItem.getCost() ==0){
             tvCost.setText("");
         }else {
-            tvCost.setText(String.valueOf(currentItem.getCost()));
+            tvCost.setText(String.valueOf(currentItem.getCost())+" SR");
         }
 
 

@@ -70,7 +70,7 @@ public class additem extends AppCompatActivity {
                     item = new Item(name, description, Double.parseDouble(price), image);
                     db.addItem(item);
                     Toast.makeText(additem.this, "added", Toast.LENGTH_LONG).show();
-                    Intent intent  =new Intent(getApplicationContext(),ListView.class);
+                    Intent intent  =new Intent(getApplicationContext(),HomeActivity.class);
 
                     startActivity(intent);
 
