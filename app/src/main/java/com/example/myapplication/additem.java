@@ -68,11 +68,15 @@ public class additem extends AppCompatActivity {
                     if (imageView.getDrawable() == null)
                         throw new Exception("invalid input");
                     item = new Item(name, description, Double.parseDouble(price), image);
-                    db.addItem(item);
-                    Toast.makeText(additem.this, "added", Toast.LENGTH_LONG).show();
-                    Intent intent  =new Intent(getApplicationContext(),HomeActivity.class);
+                 boolean added=  db.addItem(item);
+if(added==true) {
+    Toast.makeText(additem.this, "added", Toast.LENGTH_LONG).show();
+    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
 
-                    startActivity(intent);
+    startActivity(intent);
+}
+else
+                    Toast.makeText(additem.this, "item is already added", Toast.LENGTH_LONG).show();
 
                 }
 

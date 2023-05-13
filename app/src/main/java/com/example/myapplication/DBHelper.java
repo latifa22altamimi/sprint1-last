@@ -101,17 +101,24 @@ public class DBHelper extends SQLiteOpenHelper {
     //start of raya and ibtihal
 
 
-    public void addItem(Item item) {
+    public boolean addItem(Item item) {
 
         SQLiteDatabase db = this.getWritableDatabase();
+String sql= "SELECT * FROM "+TABLENAME1 +" WHERE "+itemCOL1 +" = "+"'"+item.getName()+"'"+" AND "+itemCOL2 +" = " +"'"+item.getDescription()+"'";
+Cursor cursor=db.rawQuery(sql,null);
+if(cursor.getCount()<=0) {
 
-        ContentValues values = new ContentValues();
-        values.put(itemCOL1, item.getName());
-        values.put(itemCOL2, item.getDescription());
-        values.put(itemCOL3, item.getCost());
-        values.put(itemCOL4,item.getImage());
-        db.insert(TABLENAME1, null, values);
-
+    ContentValues values = new ContentValues();
+    values.put(itemCOL1, item.getName());
+    values.put(itemCOL2, item.getDescription());
+    values.put(itemCOL3, item.getCost());
+    values.put(itemCOL4, item.getImage());
+    db.insert(TABLENAME1, null, values);
+    cursor.close();
+    return true;
+}
+        cursor.close();
+return false;
     }
     public ArrayList<Item> getAllItems() {
         ArrayList<Item> items = new ArrayList<>();
