@@ -8,21 +8,27 @@ public class Item {
     private double cost;
     private int id;
     private byte[] image;
+    private String status;
+    private String user;
 
 
-    public Item(String name, String description, double cost, int id, byte[] image) {
+    public Item(String name, String description, double cost, int id, byte[] image, String Status, String user) {
         this.name = name;
         this.description = description;
         this.cost = cost;
         this.id = id;
         this.image = image;
+        this.status = Status;
+        this.user = user;
     }
 
-    public Item(String name, String description, double cost, byte[] image) {
+    public Item(String name, String description, double cost, byte[] image, String status, String user) {
         this.name = name;
         this.description = description;
         this.cost = cost;
         this.image = image;
+        this.status = status;
+        this.user = user;
     }
 
     public String getName() {
@@ -65,5 +71,19 @@ public class Item {
         this.cost = cost;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 }

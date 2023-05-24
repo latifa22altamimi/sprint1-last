@@ -34,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
     int id;
+
     private MeowBottomNavigation bottomNavigation;
 
     @Override
@@ -56,28 +57,65 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+
         // من هنا يبدأ الكود
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.baseline_logout_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.baseline_add_circle_outline_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_subscriptions_24));
-
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_home));
+        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_whatshot_24));
 
 
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
                 Intent intent;
+                String user="";
+                Bundle extras = getIntent().getExtras();
+                if (extras != null) {
+                    String value = extras.getString("username");
+                    user=value;
+                    //The key argument here must match that used in the other activity
+                }
+
                 switch (model.getId()){
 
                     case 1 :
-                         intent = new Intent(getApplicationContext() , LoginActivity.class);
+                        intent = new Intent(getApplicationContext() , LoginActivity.class);
+
                         startActivity(intent);
+
                         break;
                     case 2 :
                         intent = new Intent(getApplicationContext() , additem.class);
+
+
+
+                        intent.putExtra("username",user);
                         startActivity(intent);
                         break;
+
+                    case 3:
+                        intent = new Intent(getApplicationContext() , UserItems.class);
+
+
+
+                        intent.putExtra("username",user);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        intent=new Intent(getApplicationContext(),HomeActivity.class);
+
+                        intent.putExtra("username",user);
+                        startActivity(intent);
+                        break;
+
+                    case 5:
+                        intent=new Intent(getApplicationContext(),rentItem.class);
+                        startActivity(intent);
+                        break;
+
 
                 }
 
@@ -95,31 +133,7 @@ public class HomeActivity extends AppCompatActivity {
         ListViewJava.setAdapter(itemAdapter);
 
 
-        ListViewJava.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int in, long l) {
-                Item clickeditem = (Item)adapterView.getItemAtPosition(in);
-                new AlertDialog.Builder(HomeActivity.this)
-                        .setTitle("Do you want to delete this item?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                db.deleteItem(clickeditem);
-                                items.remove(in);
-                                itemAdapter.notifyDataSetChanged();
-                                Toast.makeText(HomeActivity.this, "Deleted Item: " +  clickeditem.getName(), Toast.LENGTH_SHORT).show();
 
-                            }
-                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        }).create().show();
-            }
-
-
-        });
 
 
 
@@ -133,16 +147,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }}
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button signin;
     DBHelper DB;
-
+public  String user;
     TextView cr;
 
     @SuppressLint("MissingInflatedId")
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = username.getText().toString();
+                 user = username.getText().toString();
                 String pass = password.getText().toString();
 
                 if(user.equals("")||pass.equals(""))
@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (check){
                         Toast.makeText(LoginActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                        intent.putExtra("username",user);
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Sign up first", Toast.LENGTH_SHORT).show();
