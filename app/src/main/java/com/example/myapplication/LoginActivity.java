@@ -41,7 +41,7 @@ public  String user;
                     if (check){
                         Toast.makeText(LoginActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                        intent.putExtra("username",user);
+                        Account.username=user;
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Sign up first", Toast.LENGTH_SHORT).show();

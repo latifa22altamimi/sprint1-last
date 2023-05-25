@@ -25,13 +25,9 @@ ListView listView;
 
         listView=(ListView) findViewById(R.id.lv1);
         db = new DBHelper(this);
-        Bundle extras = getIntent().getExtras();
-        String value="";
-        if (extras != null) {
-            value = extras.getString("username");
-        }
 
-        ArrayList<Item> items = db.getUserItems(value);
+
+        ArrayList<Item> items = db.getUserItems(Account.username);
 
         ItemAdapter itemAdapter = new ItemAdapter(this, R.layout.activity_custom_list_view, items);
 

@@ -71,13 +71,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
                 Intent intent;
-                String user="";
-                Bundle extras = getIntent().getExtras();
-                if (extras != null) {
-                    String value = extras.getString("username");
-                    user=value;
-                    //The key argument here must match that used in the other activity
-                }
+
+
 
                 switch (model.getId()){
 
@@ -92,7 +87,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-                        intent.putExtra("username",user);
+
                         startActivity(intent);
                         break;
 
@@ -101,13 +96,13 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-                        intent.putExtra("username",user);
+
                         startActivity(intent);
                         break;
                     case 4:
                         intent=new Intent(getApplicationContext(),HomeActivity.class);
 
-                        intent.putExtra("username",user);
+
                         startActivity(intent);
                         break;
 

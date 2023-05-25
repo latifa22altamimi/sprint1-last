@@ -68,15 +68,12 @@ public class additem extends AppCompatActivity {
                     if (imageView.getDrawable() == null)
                         throw new Exception("invalid input");
                     Bundle extras = getIntent().getExtras();
-                    String value="";
-                    if (extras != null) {
-                         value = extras.getString("username");
-                    }
+
                         //The key argument here must match that used in the other activity
 
 
 
-                    item = new Item(name, description, Double.parseDouble(price), image,"avaliable",value);
+                    item = new Item(name, description, Double.parseDouble(price), image,"avaliable",Account.username);
                  boolean added=  db.addItem(item);
 if(added==true) {
     Toast.makeText(additem.this, "added", Toast.LENGTH_LONG).show();
