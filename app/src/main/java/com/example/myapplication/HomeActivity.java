@@ -107,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case 5:
-                        intent=new Intent(getApplicationContext(),rentItem.class);
+                        intent=new Intent(getApplicationContext(),UserOrders.class);
                         startActivity(intent);
                         break;
 

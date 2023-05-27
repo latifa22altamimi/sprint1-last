@@ -11,9 +11,23 @@ public class Rental {
     private String city;
     private String district ;
     private String phoneNumber;
+    private    byte[]  photo;
     private double totalPrice;
 
-    public Rental(int id, String user, int itemID, String status, String name, String city, String district, String phoneNumber, double totalPrice) {
+
+
+    private String itemname;
+
+    public String getItemname() {
+        return itemname;
+    }
+
+    public void setItemname(String itemname) {
+        this.itemname = itemname;
+    }
+
+
+    public Rental(int id, String user, int itemID, String status, String name, String city, String district, String phoneNumber, double totalPrice, byte[] photo, String itemName) {
         this.id = id;
 
         this.user = user;
@@ -24,9 +38,11 @@ public class Rental {
         this.district = district;
         this.phoneNumber = phoneNumber;
         this.totalPrice = totalPrice;
+        this.photo=photo;
+        this.itemname=itemName;
     }
 
-    public Rental( String user, int itemID, String status, String name, String city, String district, String phoneNumber, double totalPrice) {
+    public Rental( String user, int itemID, String status, String name, String city, String district, String phoneNumber, double totalPrice,byte[] photo,String itemName) {
 
         this.user = user;
         this.itemID = itemID;
@@ -36,6 +52,16 @@ public class Rental {
         this.district = district;
         this.phoneNumber = phoneNumber;
         this.totalPrice = totalPrice;
+        this.photo=photo;
+        this.itemname=itemName;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     public int getId() {

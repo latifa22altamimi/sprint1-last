@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ public class ItemViewAll extends AppCompatActivity {
     TextView descriptionTextView;
     TextView statusTextView;
     TextView userTextView;
-
+Button rentButton;
 
 
     @Override
@@ -34,6 +36,7 @@ public class ItemViewAll extends AppCompatActivity {
         statusTextView = findViewById(R.id.statusTextView);
         userTextView = findViewById(R.id.userTextView);
         imageView = findViewById(R.id.image);
+        rentButton=findViewById(R.id.buttonRent);
 
 
         // Get the item ID from the Intent
@@ -57,6 +60,14 @@ public class ItemViewAll extends AppCompatActivity {
                 imageView.setImageBitmap(bitmap);
             }
         }
+rentButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent i=new Intent(ItemViewAll.this,rentItem.class);
+        i.putExtra("id",itemId);
+        startActivity(i);
+    }
+});
     }
 }
 

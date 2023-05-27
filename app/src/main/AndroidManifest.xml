@@ -15,6 +15,9 @@
             android:name=".ItemViewAll"
             android:exported="false" />
         <activity
+            android:name=".UserOrders"
+            android:exported="false" />
+        <activity
             android:name=".UserItems"
             android:exported="false" />
         <activity
