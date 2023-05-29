@@ -22,7 +22,7 @@ public class ItemViewAll extends AppCompatActivity {
     TextView statusTextView;
     TextView userTextView;
 Button rentButton;
-
+TextView cost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,7 @@ Button rentButton;
         userTextView = findViewById(R.id.userTextView);
         imageView = findViewById(R.id.image);
         rentButton=findViewById(R.id.buttonRent);
-
-
+cost=findViewById(R.id.cost);
         // Get the item ID from the Intent
         Intent intent = getIntent();
         int itemId = intent.getIntExtra("itemId", -1);
@@ -49,11 +48,10 @@ Button rentButton;
 
         if (item != null) {
             // Display the item data in the UI
-            idTextView.setText(String.valueOf(item.getId()));
-            nameTextView.setText(item.getName());
-            descriptionTextView.setText(item.getDescription());
-            statusTextView.setText(item.getStatus());
-            userTextView.setText(item.getUser());
+            nameTextView.setText("                             "+item.getName());
+            descriptionTextView.setText("Description:\n \n"+item.getDescription());
+
+            cost.setText(String.valueOf(item.getCost())+" SR");
 
             if (item.getImage() != null) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(item.getImage(), 0, item.getImage().length);
