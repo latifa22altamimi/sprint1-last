@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemViewAll">
+    tools:context=".ItemViewAll"
+    android:background="@drawable/d">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
@@ -58,31 +59,32 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv2"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"/>
-
     {
 
     <TextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:id="@+id/tv2"
+        android:layout_width="97dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="4dp"
         android:textColor="@color/black"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="217dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="44dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv2" />
 
     <TextView
         android:id="@+id/statusTextView"
@@ -119,8 +121,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:text="Rent"
+        android:background="#FC6591"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/cost"
+        android:layout_width="71dp"
+        android:layout_height="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="419dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
