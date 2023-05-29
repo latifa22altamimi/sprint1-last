@@ -154,7 +154,7 @@ return false;
     public ArrayList<Item> getAllItems() {
         ArrayList<Item> items = new ArrayList<>();
 
-        String select_query = "select * from " + TABLENAME1+ " where "+itemCOL5 +" = 'avaliable' ";
+        String select_query = "select * from " + TABLENAME1+ " where "+itemCOL5 +" = 'avaliable' AND "+itemCOL6+ " != "+"'"+Account.username+"'";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(select_query, null);
@@ -272,6 +272,19 @@ values.put(RCOL11,rental.getItemname());
         db.insert(TABLENAME2, null, values);
      return true;
 
+    }
+
+    public boolean deleteRent(Rental item){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString= "Delete From " + TABLENAME2 + " WHERE " + RCOL1 + " = " + item.getId() ;
+        Cursor cursor = db.rawQuery(queryString, null);
+        if(cursor.moveToFirst()){
+            return true;
+        } else{
+            // nothing happens
+            return false;
+        }
+        //close
     }
 
 

@@ -24,10 +24,14 @@ public class ItemViewAll extends AppCompatActivity {
 Button rentButton;
 TextView cost;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_view_all);
+
+
+
 
         // Get references to the TextViews and ImageView in your layout
         idTextView = findViewById(R.id.tv1);

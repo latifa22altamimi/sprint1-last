@@ -26,16 +26,18 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-       android:id="@+id/ed1"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       android:layout_marginHorizontal="20dp"
-       android:layout_marginTop="40dp"
-       android:drawableStart="@drawable/baseline_search_24"
-       android:hint="     search"/>
+        android:id="@+id/ed1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        android:drawableStart="@drawable/baseline_search_24"
+        android:hint="@string/search"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
 
     <com.denzcoskun.imageslider.ImageSlider

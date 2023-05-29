@@ -44,18 +44,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         Bitmap bitmap = BitmapFactory.decodeByteArray(currentItem.getImage(), 0, currentItem.getImage().length);
         imgUser.setImageBitmap(bitmap);
 
-        // استماع النقر على عنصر القائمة
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Item currentItem = getItem(position);
-                if (currentItem != null) {
-                    Intent intent = new Intent(context, ItemViewAll.class);
-                    intent.putExtra("itemId", currentItem.getId());
-                    context.startActivity(intent);
-                }
-            }
-        });
 
         return convertView;
     }

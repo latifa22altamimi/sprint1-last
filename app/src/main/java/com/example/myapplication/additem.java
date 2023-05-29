@@ -18,9 +18,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class additem extends AppCompatActivity {
 
@@ -30,6 +35,8 @@ public class additem extends AppCompatActivity {
     ImageView imageView;
     DBHelper db;
     byte[] image = null;
+
+    private MeowBottomNavigation bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +84,7 @@ public class additem extends AppCompatActivity {
                  boolean added=  db.addItem(item);
 if(added==true) {
     Toast.makeText(additem.this, "added", Toast.LENGTH_LONG).show();
-    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+    Intent intent = new Intent(getApplicationContext(), UserItems.class);
 
     startActivity(intent);
 }
@@ -96,6 +103,65 @@ else
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, 3);
+            }
+        });
+
+
+        bottomNavigation = findViewById(R.id.bottomNavigation);
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.baseline_logout_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.baseline_add_circle_outline_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_subscriptions_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_home));
+        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_whatshot_24));
+
+        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                Intent intent;
+
+
+
+                switch (model.getId()){
+
+                    case 1 :
+                        intent = new Intent(getApplicationContext() , LoginActivity.class);
+
+                        startActivity(intent);
+
+                        break;
+                    case 2 :
+                        intent = new Intent(getApplicationContext() , additem.class);
+
+
+
+
+                        startActivity(intent);
+                        break;
+
+                    case 3:
+                        intent = new Intent(getApplicationContext() , UserItems.class);
+
+
+
+
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        intent=new Intent(getApplicationContext(),HomeActivity.class);
+
+
+                        startActivity(intent);
+                        break;
+
+                    case 5:
+                        intent=new Intent(getApplicationContext(),UserOrders.class);
+                        startActivity(intent);
+                        break;
+
+
+                }
+
+                return null;
             }
         });
 

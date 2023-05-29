@@ -11,6 +11,11 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
 public class rentItem extends AppCompatActivity {
 EditText ename, ephone , ecity, edistrict ;
     RadioButton radioButton;
@@ -19,6 +24,8 @@ EditText ename, ephone , ecity, edistrict ;
     DBHelper dbHelper;
     Item item;
     int itemId;
+
+    private MeowBottomNavigation bottomNavigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +39,14 @@ tinfo=(TextView) findViewById(R.id.shipcost);
         placeOrder=findViewById(R.id.place);
  dbHelper=new DBHelper(this);
         itemId=0;// value will be sent
+
+        bottomNavigation = findViewById(R.id.bottomNavigation);
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.baseline_logout_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.baseline_add_circle_outline_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_subscriptions_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_home));
+        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_whatshot_24));
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             itemId = extras.getInt("id");
@@ -100,5 +115,59 @@ dbHelper.updateStatus(itemId);
 
             }
         });
+
+        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                Intent intent;
+
+
+
+                switch (model.getId()){
+
+                    case 1 :
+                        intent = new Intent(getApplicationContext() , LoginActivity.class);
+
+                        startActivity(intent);
+
+                        break;
+                    case 2 :
+                        intent = new Intent(getApplicationContext() , additem.class);
+
+
+
+
+                        startActivity(intent);
+                        break;
+
+                    case 3:
+                        intent = new Intent(getApplicationContext() , UserItems.class);
+
+
+
+
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        intent=new Intent(getApplicationContext(),HomeActivity.class);
+
+
+                        startActivity(intent);
+                        break;
+
+                    case 5:
+                        intent=new Intent(getApplicationContext(),UserOrders.class);
+                        startActivity(intent);
+                        break;
+
+
+                }
+
+                return null;
+            }
+        });
+
+
+
     }
 }

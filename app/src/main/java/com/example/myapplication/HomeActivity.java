@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -127,19 +128,18 @@ public class HomeActivity extends AppCompatActivity {
 
         ListViewJava.setAdapter(itemAdapter);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ListViewJava.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int in, long l) {
+                Item clickeditem = (Item)adapterView.getItemAtPosition(in);
+                if (clickeditem != null) {
+                    Toast.makeText(HomeActivity.this, "View " +  clickeditem.getName(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), ItemViewAll.class);
+                    intent.putExtra("itemId", clickeditem.getId());
+                    startActivity(intent);
+                }
+            }
+        });
 
     }}
 
