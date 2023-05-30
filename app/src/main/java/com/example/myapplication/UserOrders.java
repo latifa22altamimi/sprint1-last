@@ -52,7 +52,7 @@ public class UserOrders extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
-                                DatePickerDialog datePickerDialog = new DatePickerDialog(UserOrders.this, androidx.appcompat.R.style.Base_Theme_AppCompat , new DatePickerDialog.OnDateSetListener() {
+                                DatePickerDialog datePickerDialog = new DatePickerDialog(UserOrders.this, androidx.appcompat.R.style.Base_V7_ThemeOverlay_AppCompat_Dialog , new DatePickerDialog.OnDateSetListener() {
                                     @Override
                                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
@@ -60,7 +60,7 @@ public class UserOrders extends AppCompatActivity {
 
                                         boolean your_date_is_outdated;
 
-                                        //Try out
+
                                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
                                         Date strDate = null;
