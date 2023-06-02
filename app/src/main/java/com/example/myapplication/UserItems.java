@@ -45,9 +45,9 @@ public class UserItems extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.baseline_logout_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.baseline_add_circle_outline_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_subscriptions_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.baseline_view_headline_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_home));
-        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_whatshot_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.baseline_receipt_24));
 
 
 

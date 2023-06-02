@@ -70,10 +70,10 @@ public class UserOrders extends AppCompatActivity {
                                             throw new RuntimeException(e);
                                         }
                                         if (new Date().after(strDate)) {
-                                            your_date_is_outdated = true;
+                                            your_date_is_outdated = false;
                                         }
                                         else{
-                                            your_date_is_outdated = false;
+                                            your_date_is_outdated = true;
                                         }
 
                                         if (your_date_is_outdated){
@@ -106,9 +106,9 @@ public class UserOrders extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.baseline_logout_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.baseline_add_circle_outline_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_subscriptions_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.baseline_view_headline_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_home));
-        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_whatshot_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.baseline_receipt_24));
 
 
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
