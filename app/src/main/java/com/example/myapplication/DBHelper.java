@@ -277,6 +277,10 @@ values.put(RCOL11,rental.getItemname());
     public boolean deleteRent(Rental item){
         SQLiteDatabase db = this.getWritableDatabase();
         String queryString= "Delete From " + TABLENAME2 + " WHERE " + RCOL1 + " = " + item.getId() ;
+        //make item available again
+        String query = "update " + TABLENAME1 + " SET "+ itemCOL5 +" = 'avaliable' where "+COl_ID+" = "+item.getItemID();
+        db.execSQL(query);
+
         Cursor cursor = db.rawQuery(queryString, null);
         if(cursor.moveToFirst()){
             return true;
